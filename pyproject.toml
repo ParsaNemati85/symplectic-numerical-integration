@@ -2,5 +2,6 @@
 version = "b0.01"
 dependencies = ["numpy >= 2.3.3",
     "scipy >= 1.16.2",
-    "matplotlib >= 3.10.6"]
+    "matplotlib >= 3.10.6",
+    "sphinx >= 8.2.3"]
 readme = "README.md"
