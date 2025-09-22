@@ -1,0 +1,4 @@
+[project]
+version = "b0.01"
+dependencies = []
+readme = "README.md"
