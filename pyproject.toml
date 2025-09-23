@@ -1,7 +1,19 @@
 [project]
-version = "b0.01"
+name = "symplectic-numerical-integration"
 dependencies = ["numpy >= 2.3.3",
     "scipy >= 1.16.2",
     "matplotlib >= 3.10.6",
     "sphinx >= 8.2.3"]
 readme = "README.md"
+version = "0.1.0"
+requires-python = ">=3.9"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

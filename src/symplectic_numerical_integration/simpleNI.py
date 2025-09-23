@@ -1,10 +1,10 @@
 import numpy as np
-import math as m
+import math as ma
 
 def dampening_torque(t):
     return 0.0
 
-def equation_of_motion(t:float, T: list[float, float], *args, **kwargs)-> list[float]:
+def equation_of_motion(t:float, T: list[float, float], **kwargs)-> list[float]:
     r"""
     `t`: time parameter.
     --------------------------------------------------------
@@ -22,27 +22,26 @@ def equation_of_motion(t:float, T: list[float, float], *args, **kwargs)-> list[f
     `l` pendulum length
     --------------------------------------------------------
     The general equation of motion used here is as follows:
+
     .. math::
     mL^2\theta''(t)+ c\theta'(t)+mgL\sin(\theta) = \tau_{\text{ext}}(t)
     """
-    if len(args) or len(kwargs) > 4:
+    if len(kwargs) > 4:
         raise "Too many arguments, pendulum only takes c,m,g,l"
-    c,m,g,l = args
 
     try:
-
         if len(kwargs) > 0:
-            c = kwargs.fromkeys('c')
-            m = kwargs.fromkeys("m")
-            g = kwargs.fromkeys("g")
-            l = kwargs.fromkeys("l")
+            c = kwargs['c']
+            m = kwargs["m"]
+            g = kwargs["g"]
+            l = kwargs["l"]
     except:
         raise "Something went wrong, you most likely passed a variable that is not c,l,g or m"
 
     cur_angle = T[0]
     angular_velocity = T[1]
     d_cur_angle_dt = angular_velocity
-    angular_acceleration = -c/(m*l^2)*d_cur_angle_dt-(g/l)*m.sin(cur_angle)+1/(m*l^2)*dampening_torque(t)
+    angular_acceleration = -c/(m*l^2)*d_cur_angle_dt-(g/l)*ma.sin(cur_angle)+1/(m*l^2)*dampening_torque(t)
     return [d_cur_angle_dt, angular_acceleration]
 
 
