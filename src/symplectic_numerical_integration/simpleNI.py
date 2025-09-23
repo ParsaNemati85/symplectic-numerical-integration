@@ -41,8 +41,9 @@ def equation_of_motion(t:float, T: list[float, float], **kwargs)-> list[float]:
     cur_angle = T[0]
     angular_velocity = T[1]
     d_cur_angle_dt = angular_velocity
-    angular_acceleration = -c/(m*l^2)*d_cur_angle_dt-(g/l)*ma.sin(cur_angle)+1/(m*l^2)*dampening_torque(t)
+    angular_acceleration = -(c)/(m*(l^2))*d_cur_angle_dt-(g/l)*ma.sin(cur_angle)+1/(m*(l^2))*dampening_torque(t)
     return [d_cur_angle_dt, angular_acceleration]
+
 
 
 
